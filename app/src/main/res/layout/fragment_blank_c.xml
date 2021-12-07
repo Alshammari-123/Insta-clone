@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.home.BlankFragmentC">
+    tools:context=".View.home.fragmentC.BlankFragmentC">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="409dp"

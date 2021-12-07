@@ -1,4 +1,4 @@
-package com.example.finle_project.View.home
+package com.example.finle_project.View.home.fragmentB
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.finle_project.R
 
-class BlankFragmentA : Fragment() {
+class BlankFragmentB : Fragment() {
 
 
     override fun onCreateView(
@@ -15,7 +15,7 @@ class BlankFragmentA : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank_a, container, false)
+        return inflater.inflate(R.layout.fragment_blank_b, container, false)
     }
 
-    }
+}

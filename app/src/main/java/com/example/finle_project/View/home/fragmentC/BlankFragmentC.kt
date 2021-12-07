@@ -1,4 +1,4 @@
-package com.example.finle_project.View.home
+package com.example.finle_project.View.home.fragmentC
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
