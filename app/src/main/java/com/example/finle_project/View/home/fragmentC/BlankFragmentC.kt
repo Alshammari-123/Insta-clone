@@ -15,7 +15,7 @@ class BlankFragmentC : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank_c, container, false)
+        return inflater.inflate(R.layout.fragment_blank_home, container, false)
     }
 
 }

@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Finle_Project">
         <activity
-            android:name="com.example.finle_project.View.profile.Profile"
+            android:name=".View.home.Splash.Splash"
             android:exported="false" />
         <activity
-            android:name="com.example.finle_project.View.Regestar.Registration"
+            android:name=".View.profile.Profile"
             android:exported="false" />
         <activity
-            android:name="com.example.finle_project.View.login.Login"
+            android:name=".View.Regestar.Registration"
+            android:exported="false" />
+        <activity
+            android:name=".View.login.Login"
             android:exported="false" />
         <activity
             android:name=".View.home.MainActivity"
