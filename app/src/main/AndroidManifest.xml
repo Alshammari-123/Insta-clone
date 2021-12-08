@@ -11,7 +11,13 @@
         android:theme="@style/Theme.Finle_Project">
         <activity
             android:name=".View.home.Splash.Splash"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".View.profile.Profile"
             android:exported="false" />
