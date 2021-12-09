@@ -7,6 +7,7 @@ import android.os.Handler
 import com.airbnb.lottie.LottieAnimationView
 import com.example.finle_project.R
 import com.example.finle_project.View.home.MainActivity
+import com.example.finle_project.View.login.Login
 
 class Splash : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +18,13 @@ class Splash : AppCompatActivity() {
         logo.setAnimation("logo.json")
         logo.playAnimation()
         logo.loop(true)
+
+        Handler().postDelayed({
+
+            var intent= Intent(this, Login::class.java)
+            startActivity(intent)
+            finish()
+        },3000)
 
 
     }

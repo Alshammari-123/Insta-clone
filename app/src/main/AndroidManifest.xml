@@ -18,9 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".View.profile.Profile"
-            android:exported="false" />
+
         <activity
             android:name=".View.Regestar.Registration"
             android:exported="false" />
