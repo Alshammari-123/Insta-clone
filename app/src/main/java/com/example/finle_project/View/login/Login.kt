@@ -1,23 +1,33 @@
 package com.example.finle_project.View.login
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finle_project.R
 import com.example.finle_project.View.Regestar.Registration
 import com.example.finle_project.View.home.MainActivity
+import com.google.android.material.progressindicator.BaseProgressIndicator
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class Login : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+    private val mAuthListener: AuthStateListener? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-//
+
+
         var emailEditText = findViewById<EditText>(R.id.emailEditText)
         var editTextPassword = findViewById<EditText>(R.id.editTextPassword)
         var buttonLogIn = findViewById<Button>(R.id.buttonLogIn)
@@ -52,11 +62,18 @@ class Login : AppCompatActivity() {
 
             }
 
+
         }
         textButtonSignUp.setOnClickListener {
             var i = Intent(this, Registration::class.java)
             startActivity(i)
         }
 
+
+
+
+
     }
+
+
 }
