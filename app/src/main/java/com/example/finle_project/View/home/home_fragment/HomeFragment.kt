@@ -1,4 +1,4 @@
-package com.example.finle_project.View.home.fragmentC
+package com.example.finle_project.View.home.home_fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.finle_project.R
 
-class BlankFragmentC : Fragment() {
+class HomeFragment : Fragment() {
 
 
     override fun onCreateView(

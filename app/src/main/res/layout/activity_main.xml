@@ -7,6 +7,7 @@
     tools:context=".View.home.MainActivity">
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/myTabLayout"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:background="@drawable/my_color"
@@ -15,23 +16,26 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_baseline_home_24" />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_baseline_search_24" />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabProfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_baseline_account_circle_24" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/myToolbar"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:background="@drawable/my_color"
@@ -42,4 +46,14 @@
         app:title="Home"
         app:menu="@menu/tool_bar"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/home_fragment_container_view"
+        android:name="com.example.finle_project.View.home.home_fragment.HomeFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/myTabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myToolbar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

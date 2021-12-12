@@ -1,4 +1,4 @@
-package com.example.finle_project.View.home.fragmentA
+package com.example.finle_project.View.home.profile_fragment
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,16 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.finle_project.Model.Profile
+import com.example.finle_project.Model.Movie
 import com.example.finle_project.R
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 
 
-class AdapterProfile (var data:MutableList<Profile>):RecyclerView.Adapter<ProfileHolder>() {
+class AdapterProfile(var data: MutableList<Movie>):RecyclerView.Adapter<ProfileHolder>() {
 private lateinit var context: Context
-var db =FirebaseAuth.getInstance()
+var db=FirebaseFirestore.getInstance()
+
      override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileHolder {
 
          context=parent.context

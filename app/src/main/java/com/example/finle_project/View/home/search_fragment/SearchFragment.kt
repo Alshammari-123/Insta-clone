@@ -1,4 +1,4 @@
-package com.example.finle_project.View.home.fragmentB
+package com.example.finle_project.View.home.search_fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.finle_project.R
 
-class BlankFragmentB : Fragment() {
+class SearchFragment : Fragment() {
 
 
     override fun onCreateView(
