@@ -16,7 +16,7 @@
         app:srcCompat="@drawable/image_raounded" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textViewAcountSearch"
         android:layout_width="136dp"
         android:layout_height="45dp"
         android:layout_marginStart="30dp"

@@ -1,10 +1,11 @@
 package com.example.finle_project.View.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.FragmentManager
 import com.example.finle_project.R
+import com.example.finle_project.View.home.NewPost.NewPostActivity
 import com.example.finle_project.View.home.profile_fragment.ProfileFragment
 import com.example.finle_project.View.home.search_fragment.SearchFragment
 import com.example.finle_project.View.home.home_fragment.HomeFragment
@@ -40,11 +41,18 @@ class MainActivity : AppCompatActivity() {
         })
 
 
-        val fragmentManager: FragmentManager = supportFragmentManager
-        myTabLayout.setOnClickListener {
+       myToolbar.setOnMenuItemClickListener {
+           when(it.itemId){
+               R.id.add -> {
+                   val intent = Intent(this,NewPostActivity::class.java)
+                   startActivity(intent)
+               }
+
+           }
+           true
 
 
-        }
+       }
     }
 
 
