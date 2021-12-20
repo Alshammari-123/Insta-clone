@@ -7,10 +7,12 @@
 
     <ImageView
         android:id="@+id/imageView2_search"
-        android:layout_width="107dp"
+        android:layout_width="112dp"
         android:layout_height="112dp"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image_raounded" />
@@ -18,12 +20,15 @@
     <TextView
         android:id="@+id/textViewAcountSearch"
         android:layout_width="136dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
         android:text="Account"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView2_search"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

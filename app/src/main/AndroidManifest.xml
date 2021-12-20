@@ -17,7 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".View.home.My_Posts.My_Posts"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".View.home.Splash.Splash"
             android:exported="true">

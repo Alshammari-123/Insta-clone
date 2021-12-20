@@ -6,6 +6,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import com.example.finle_project.Model.MyPost
 import com.example.finle_project.R
+import com.example.finle_project.util.ImageEncoding
 
 class My_Posts : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,8 +17,9 @@ class My_Posts : AppCompatActivity() {
         var imageButtonLikePost=findViewById<ImageButton>(R.id.imageButtonLikePost)
         var imageButton2commentPost=findViewById<ImageButton>(R.id.imageButton2commentPost)
 
-        var getIntent = intent.getSerializableExtra("details") as MyPost
-        getIntent.imageUrl
+        var post = intent.getSerializableExtra("details") as MyPost
+
+        imageViewMyPost.setImageBitmap(ImageEncoding.decodeBase64(post.imageUrl))
 
     }
 }

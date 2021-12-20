@@ -43,7 +43,8 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:title="Home"
+        app:title="Insta"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
         app:menu="@menu/tool_bar"
         app:layout_constraintTop_toTopOf="parent" />
 

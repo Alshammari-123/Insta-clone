@@ -1,6 +1,9 @@
 package com.example.finle_project.View.home.home_fragment
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +13,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finle_project.Model.MyPost
 import com.example.finle_project.R
+import com.example.finle_project.util.ImageEncoding
 import com.squareup.picasso.Picasso
+import java.io.ByteArrayInputStream
 
 
-class AdapterHome(var data: List<MyPost>):RecyclerView.Adapter<Homeholder>() {
+class AdapterHome(var data:List<MyPost>):RecyclerView.Adapter<Homeholder>() {
     //var dp=Firebase.firestore
     lateinit var context:Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Homeholder {
@@ -27,14 +32,15 @@ class AdapterHome(var data: List<MyPost>):RecyclerView.Adapter<Homeholder>() {
         holder.textView13Comments.text= data[position].caption
         holder.textViewLikes.text= data[position].likes.toString()
         //Picasso.get().load(data[position].photoAcount).into(holder.imageView2HomeAzount)
-        Picasso.get().load(data[position].imageUrl).into(holder.imageView3HomePost)
+        val decodedBitmap = ImageEncoding.decodeBase64(data[position].imageUrl)
+        holder.imageView3HomePost.setImageBitmap(decodedBitmap)
+//        Picasso.get().load(data[position].imageUrl).into(holder.imageView3HomePost)
 
     }
 
     override fun getItemCount(): Int {
         return data.size
     }
-
 }
 class Homeholder(v:View):RecyclerView.ViewHolder(v){
 

@@ -9,7 +9,7 @@ import com.example.finle_project.Repository.PostRepository
 class PostViewModel : ViewModel() {
 
     val postRep = PostRepository()
-    fun getAllPosts(): LiveData<List<MyPost>> {
+    fun getAllPosts(): MutableLiveData<List<MyPost>> {
 
         val mLiveData = MutableLiveData<List<MyPost>>()
         postRep.getAllPost().observeForever {
@@ -27,5 +27,21 @@ class PostViewModel : ViewModel() {
 
         return mLiveData
 
+    }
+
+    fun getMyPost(id:String): MutableLiveData<List<MyPost>> {
+        val mLiveData= MutableLiveData<List<MyPost>>()
+        postRep.getMyPst(id).observeForever{
+            mLiveData.postValue(it)
+        }
+        return mLiveData
+    }
+
+    fun getTheUser(caption:String):MutableLiveData<List<MyPost>>{
+        val mLiveData= MutableLiveData<List<MyPost>>()
+        postRep.getTheUser(caption).observeForever{
+            mLiveData.postValue(it)
+        }
+        return mLiveData
     }
 }

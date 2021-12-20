@@ -1,6 +1,7 @@
 package com.example.finle_project.View.login
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -60,6 +61,7 @@ class Login : AppCompatActivity() {
                     }
             }
 
+//            var SharedPreferences = SharedPreferences()
 
         }
         textButtonSignUp.setOnClickListener {

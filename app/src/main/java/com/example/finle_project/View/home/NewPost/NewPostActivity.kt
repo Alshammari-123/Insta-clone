@@ -2,31 +2,31 @@ package com.example.finle_project.View.home.NewPost
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Base64
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finle_project.Model.MyPost
 import com.example.finle_project.databinding.ActivityNewPostBinding
+import com.example.finle_project.util.ImageEncoding
 import com.example.finle_project.viewModel.PostViewModel
 import com.github.dhaval2404.imagepicker.ImagePicker
-import java.io.ByteArrayOutputStream
+import com.google.firebase.auth.FirebaseAuth
 
 class NewPostActivity : AppCompatActivity() {
     lateinit var binding: ActivityNewPostBinding
+    //lateinit var currentPost:MyPost
     val vm: PostViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewPostBinding.inflate(layoutInflater)
 
 
+
 //        vm.getAllPosts().observe(this,{
+//
 //            currentPost= it[0]//
 //
 //            if (currentPost.imageUrl.length>120){
@@ -34,7 +34,7 @@ class NewPostActivity : AppCompatActivity() {
 //            } else {
 //                Picasso.get().load(currentPost.imageUrl).into(binding.imageViewNewPost)
 //            }
-//            binding.textView6name.text=currentPost.caption
+//           binding.textCaption.text=currentPost.caption.
 //
 //
 //        })
@@ -70,34 +70,30 @@ class NewPostActivity : AppCompatActivity() {
     }
 
     fun codApi(uri: Uri) {
-        val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uri)
-
-        // initialize byte stream
-        val stream = ByteArrayOutputStream()
-
-        // compress Bitmap
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
-
-        // Initialize byte array
-        val bytes: ByteArray = stream.toByteArray()
-        // get base64 encoded string
-        val encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT)
-        // set encoded text on textview
-        println(encodedImage)
+        val encodedImage = ImageEncoding.encodeBase64(uri)
         val caption = binding.textCaption.text.toString()
-        val currentPost = MyPost(caption, null, encodedImage, 0)
+        val currentPost =
+            FirebaseAuth.getInstance().currentUser?.let { MyPost(caption, null, encodedImage, 0, it.uid) }
+
         Log.i("NewPostActivityPost", currentPost.toString())
-        vm.createPost(currentPost)
+        currentPost?.let {
+            vm.createPost(it).observe(this) {
+                Toast.makeText(this, "Uploaded image ${it.caption}", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }
     }
 
-    fun decodePicFromApi(encodedString: String): Bitmap {
 
-        println(encodedString)
-        val imageBytes = Base64.decode(encodedString, Base64.DEFAULT)
-        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
 
-        return decodedImage
-    }
+//    fun decodePicFromApi(encodedString: String): Bitmap {
+//
+//        println(encodedString)
+//        val imageBytes = Base64.decode(encodedString, Base64.DEFAULT)
+//        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+//
+//        return decodedImage
+//    }
 
 
 }

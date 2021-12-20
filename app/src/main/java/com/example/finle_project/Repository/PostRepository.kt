@@ -7,15 +7,16 @@ import com.example.finle_project.Model.MyPost
 import com.example.finle_project.Network.API
 import com.example.finle_project.Network.PostServic
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 class PostRepository {
     val postServic = API.getInstance().create(PostServic::class.java)
 
-    fun getAllPost(): LiveData<List<MyPost>> {
+    fun getAllPost(): MutableLiveData<List<MyPost>> {
         val mLiveData = MutableLiveData<List<MyPost>>()
 
-        postServic.getAllPost().enqueue(object : retrofit2.Callback<MutableList<MyPost>> {
+        postServic.getAllPost().enqueue(object : Callback<MutableList<MyPost>> {
             override fun onResponse(
                 call: Call<MutableList<MyPost>>,
                 response: Response<MutableList<MyPost>>
@@ -34,7 +35,7 @@ class PostRepository {
     fun createPost(post: MyPost): LiveData<MyPost> {
         val mLiveData = MutableLiveData<MyPost>()
 
-        postServic.createPost(post).enqueue(object : retrofit2.Callback<MyPost> {
+        postServic.createPost(post).enqueue(object : Callback<MyPost> {
             override fun onResponse(call: Call<MyPost>, response: Response<MyPost>) {
                 Log.d("PICTURE_ENCODED", "response: ${response.body()}")
                 mLiveData.postValue(response.body())
@@ -47,4 +48,41 @@ class PostRepository {
         })
         return mLiveData
     }
+
+    fun getMyPst(id: String): MutableLiveData<List<MyPost>> {
+
+        val mLiveData = MutableLiveData<List<MyPost>>()
+        postServic.getMyPost(id).enqueue(object : Callback<List<MyPost>> {
+            override fun onResponse(call: Call<List<MyPost>>, response: Response<List<MyPost>>) {
+                mLiveData.postValue(response.body())
+                Log.d("LIST_IS", "hello ${response.body()}")
+                Log.d("getMyPostt", "onResponse: ${response.raw()}")
+            }
+
+            override fun onFailure(call: Call<List<MyPost>>, t: Throwable) {
+                Log.d("FAILED_REPO", "${t.message}")
+            }
+
+        })
+
+        return mLiveData
+    }
+
+    fun getTheUser(caption: String): MutableLiveData<List<MyPost>> {
+
+        val mLiveData = MutableLiveData<List<MyPost>>()
+        postServic.getTheUser(caption).enqueue(object : Callback<List<MyPost>> {
+            override fun onResponse(call: Call<List<MyPost>>, response: Response<List<MyPost>>) {
+                Log.d("PICTURE_ENCODED", "response: ${response.body()}")
+                mLiveData.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<List<MyPost>>, t: Throwable) {
+                Log.d("PICTURE_ENCODED", "hello ${t.message}")
+            }
+
+        })
+        return mLiveData
+    }
+
 }
