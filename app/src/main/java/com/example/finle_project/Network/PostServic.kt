@@ -2,10 +2,7 @@ package com.example.finle_project.Network
 
 import com.example.finle_project.Model.MyPost
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface PostServic {
 
@@ -25,6 +22,10 @@ interface PostServic {
     // search user
     @GET("posts")
     fun getTheUser(@Query(" caption") caption: String): Call<List<MyPost>>
+
+    // delete post
+    @DELETE("posts/{id}")
+    fun deletePost(@Path("id")id: String): Call<List<MyPost>>
 
 
 }

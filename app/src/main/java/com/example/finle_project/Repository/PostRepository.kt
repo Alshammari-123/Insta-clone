@@ -10,6 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+private const val TAG = "PostRepository"
 class PostRepository {
     val postServic = API.getInstance().create(PostServic::class.java)
 
@@ -74,6 +75,22 @@ class PostRepository {
         postServic.getTheUser(caption).enqueue(object : Callback<List<MyPost>> {
             override fun onResponse(call: Call<List<MyPost>>, response: Response<List<MyPost>>) {
                 Log.d("PICTURE_ENCODED", "response: ${response.body()}")
+                mLiveData.postValue(response.body())
+            }
+
+            override fun onFailure(call: Call<List<MyPost>>, t: Throwable) {
+                Log.d("PICTURE_ENCODED", "hello ${t.message}")
+            }
+
+        })
+        return mLiveData
+    }
+    fun deletePost(id: String):MutableLiveData<List<MyPost>>{
+        val mLiveData = MutableLiveData<List<MyPost>>()
+        postServic.deletePost(id).enqueue(object :Callback<List<MyPost>>{
+            override fun onResponse(call: Call<List<MyPost>>, response: Response<List<MyPost>>) {
+                Log.d("PICTURE_ENCODED", "response: ${response.body()}")
+                Log.d(TAG, "onResponse: ${response.raw()}")
                 mLiveData.postValue(response.body())
             }
 

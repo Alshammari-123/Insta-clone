@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/imageView3HomePost"
-        android:layout_width="411dp"
-        android:layout_height="207dp"
+        android:layout_width="409dp"
+        android:layout_height="240dp"
         android:layout_marginTop="1dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,36 +16,38 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/imageButton_like"
         android:layout_width="64dp"
         android:layout_height="43dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
         android:backgroundTint="#FBFAFA"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3HomePost"
+        app:layout_constraintTop_toBottomOf="@+id/textView13Comments"
         app:srcCompat="@drawable/ic_baseline_favorite_border_24"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-
-    <TextView
-        android:id="@+id/textView13Comments"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="5dp"
-        android:text="comments.."
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton_like" />
 
     <TextView
         android:id="@+id/textViewLikes"
         android:layout_width="64dp"
         android:layout_height="43dp"
+        android:layout_marginTop="10dp"
         android:text="Likes"
         app:layout_constraintStart_toEndOf="@+id/imageButton_like"
+        app:layout_constraintTop_toBottomOf="@+id/textView13Comments" />
+
+    <TextView
+        android:id="@+id/textView13Comments"
+        android:layout_width="308dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:hint="caption"
+        android:paddingStart="15dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3HomePost" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

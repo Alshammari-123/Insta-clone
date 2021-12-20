@@ -8,7 +8,7 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/myTabLayout"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/my_color"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,17 +36,17 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/myToolbar"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/my_color"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:title="Insta"
-        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+        app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/tool_bar"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+        app:title="Insta" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/home_fragment_container_view"

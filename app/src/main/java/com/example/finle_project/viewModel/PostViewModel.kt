@@ -29,17 +29,25 @@ class PostViewModel : ViewModel() {
 
     }
 
-    fun getMyPost(id:String): MutableLiveData<List<MyPost>> {
-        val mLiveData= MutableLiveData<List<MyPost>>()
-        postRep.getMyPst(id).observeForever{
+    fun getMyPost(id: String): MutableLiveData<List<MyPost>> {
+        val mLiveData = MutableLiveData<List<MyPost>>()
+        postRep.getMyPst(id).observeForever {
             mLiveData.postValue(it)
         }
         return mLiveData
     }
 
-    fun getTheUser(caption:String):MutableLiveData<List<MyPost>>{
-        val mLiveData= MutableLiveData<List<MyPost>>()
-        postRep.getTheUser(caption).observeForever{
+    fun getTheUser(caption: String): MutableLiveData<List<MyPost>> {
+        val mLiveData = MutableLiveData<List<MyPost>>()
+        postRep.getTheUser(caption).observeForever {
+            mLiveData.postValue(it)
+        }
+        return mLiveData
+    }
+
+    fun deletePost(id: String): MutableLiveData<List<MyPost>> {
+        val mLiveData = MutableLiveData<List<MyPost>>()
+        postRep.deletePost(id).observeForever {
             mLiveData.postValue(it)
         }
         return mLiveData
