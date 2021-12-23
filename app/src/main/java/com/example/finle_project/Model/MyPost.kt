@@ -3,7 +3,7 @@ package com.example.finle_project.Model
 import java.io.Serializable
 
 data class MyPost(
-    val caption: String,
+    var caption: String,
     val id: String?,
     val imageUrl: String,
     val likes: Int,

@@ -77,4 +77,12 @@
         app:layout_constraintTop_toBottomOf="@+id/caption"
         app:srcCompat="@drawable/ic_baseline_delete_forever_24" />
 
+    <ImageView
+        android:id="@+id/imageViewDone"
+        android:layout_width="91dp"
+        android:layout_height="55dp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDelete"
+        app:layout_constraintTop_toBottomOf="@+id/caption"
+        app:srcCompat="@drawable/ic_baseline_done_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,7 @@ class My_Posts : AppCompatActivity() {
         var caption = findViewById<EditText>(R.id.caption)
         var accountUser = findViewById<TextView>(R.id.accountUser)
         var profilePhoto = findViewById<ImageView>(R.id.ProfilePhoto)
+        var imageViewDone = findViewById<ImageView>(R.id.imageViewDone)
 
         var post = intent.getSerializableExtra("details") as MyPost
 
@@ -30,6 +31,18 @@ class My_Posts : AppCompatActivity() {
             post.id?.let { id ->
                 viewModel.deletePost(id).observe(this) {
                     Toast.makeText(this, "Delete", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        imageViewDone.setOnClickListener {
+            post.id?.let { id ->
+                val updatedPost = post.apply {
+                    this.caption = caption.text.toString()
+                }
+                viewModel.updatePost(updatedPost).observe(this) {
+                    Toast.makeText(this, "Update Done", Toast.LENGTH_SHORT).show()
+                    finish()
                 }
             }
         }

@@ -23,12 +23,13 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-//
-//        FirebaseAuth.getInstance().currentUser?.let {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+  // if the user login befor you can go with out login agane
+        FirebaseAuth.getInstance().currentUser?.let {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+       }
+
 
         var emailEditText = findViewById<EditText>(R.id.emailEditText)
         var editTextPassword = findViewById<EditText>(R.id.editTextPassword)

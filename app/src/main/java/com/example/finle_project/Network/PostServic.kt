@@ -25,7 +25,11 @@ interface PostServic {
 
     // delete post
     @DELETE("posts/{id}")
-    fun deletePost(@Path("id")id: String): Call<List<MyPost>>
+    fun deletePost(@Path("id") id: String): Call<List<MyPost>>
+
+    // to update
+    @PUT("posts/{id}")
+    fun updatePost(@Path("id") id: String, @Body post: MyPost): Call<MyPost>
 
 
 }
