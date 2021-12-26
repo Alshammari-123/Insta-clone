@@ -30,7 +30,9 @@ class UserAdapter(val context: Context, private val userList:MutableList<UserCha
 
             intent.putExtra("name",currentUser.name)
             intent.putExtra("uid",currentUser.uid)
-            context.startActivity(intent)
+            holder.itemView.context
+
+            holder.itemView.context.startActivity(intent)
         }
     }
 
