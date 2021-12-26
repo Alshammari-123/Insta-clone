@@ -7,37 +7,49 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.finle_project.Model.UserChate
 import com.example.finle_project.R
 import com.example.finle_project.View.home.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class Registration : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var mDbRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
-        var editTextTextFullName = findViewById<EditText>(R.id.editTextTextFullName)
-        var editTextTextEmail = findViewById<EditText>(R.id.editTextTextEmail)
-        var editTextTextPassword = findViewById<EditText>(R.id.editTextTextPassword)
+        var name = findViewById<EditText>(R.id.editTextTextFullName)
+        var email = findViewById<EditText>(R.id.editTextTextEmail)
+        var password = findViewById<EditText>(R.id.editTextTextPassword)
         var buttonRegister = findViewById<Button>(R.id.buttonDone)
 
 
         buttonRegister.setOnClickListener {
             firebaseAuth = Firebase.auth
             firebaseAuth.createUserWithEmailAndPassword(
-                editTextTextEmail.text.toString(),
-                editTextTextPassword.text.toString()
+                email.text.toString(),
+                password.text.toString(),
             ).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    // for userChat
+                    addUserToDatabase(name.text.toString(), email.text.toString(), firebaseAuth.currentUser?.uid!!)
+
                     val user = hashMapOf(
-                        "fullname" to editTextTextFullName.text.toString(),
-                        "email" to editTextTextEmail.text.toString()
-                    )
+                        "fullname" to name.text.toString(),
+                        "email" to email.text.toString(),
+
+                        )
+
+
+
+
                     val db = Firebase.firestore
                     db.collection("users")
                         .document(firebaseAuth.currentUser?.uid.toString())
@@ -51,6 +63,7 @@ class Registration : AppCompatActivity() {
 
                     Log.d("Tu", firebaseAuth.currentUser?.uid.toString())
                     val intent = Intent(this, MainActivity::class.java)
+
                     startActivity(intent)
                 } else {
                     println("Error")
@@ -61,6 +74,13 @@ class Registration : AppCompatActivity() {
             }
         }
 
+
+    }
+// for chat
+    private fun addUserToDatabase(name: String, email: String, uid: String) {
+
+        mDbRef = FirebaseDatabase.getInstance().reference
+        mDbRef.child("users").child(uid).setValue(UserChate(name, email, uid))
 
     }
 }

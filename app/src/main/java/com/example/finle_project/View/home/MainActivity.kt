@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.finle_project.R
 import com.example.finle_project.View.home.NewPost.NewPostActivity
+import com.example.finle_project.View.home.chat_fragment.Chat_Fragment
 import com.example.finle_project.View.home.profile_fragment.ProfileFragment
 import com.example.finle_project.View.home.search_fragment.SearchFragment
 import com.example.finle_project.View.home.home_fragment.HomeFragment
@@ -26,9 +27,12 @@ class MainActivity : AppCompatActivity() {
                         .replace(R.id.home_fragment_container_view, HomeFragment())
                         .commit()
                     1 -> supportFragmentManager.beginTransaction()
-                        .replace(R.id.home_fragment_container_view, SearchFragment())
+                        .replace(R.id.home_fragment_container_view, Chat_Fragment())
                         .commit()
                     2 -> supportFragmentManager.beginTransaction()
+                        .replace(R.id.home_fragment_container_view, SearchFragment())
+                        .commit()
+                    3 -> supportFragmentManager.beginTransaction()
                         .replace(R.id.home_fragment_container_view, ProfileFragment())
                         .commit()
                 }

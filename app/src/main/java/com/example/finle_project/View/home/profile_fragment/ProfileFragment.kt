@@ -12,10 +12,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.finle_project.Model.FbUser
 import com.example.finle_project.Model.MyPost
 import com.example.finle_project.R
 import com.example.finle_project.View.home.MainActivity
 import com.example.finle_project.viewModel.PostViewModel
+import com.example.finle_project.viewModel.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -25,6 +27,7 @@ private const val TAG = "ProfileFragment"
 
 class ProfileFragment : Fragment() {
     val viewModel: PostViewModel by viewModels()
+    val userViewModel:UserViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -37,6 +40,7 @@ class ProfileFragment : Fragment() {
         var imageViewProfile = v.findViewById<ImageView>(R.id.imageViewProfile)
         var buttonEditProfile = v.findViewById<Button>(R.id.buttonEditProfile)
         var textView11UserNamd = v.findViewById<TextView>(R.id.textView11Name)
+        var textView11Name= v.findViewById<TextView>(R.id.textView11Name)
         var textView9Followirse = v.findViewById<TextView>(R.id.textView9Followirse)
         var textView10Folloing = v.findViewById<TextView>(R.id.textView10Folloing)
 
@@ -68,7 +72,7 @@ class ProfileFragment : Fragment() {
             var button7Done = v.findViewById<Button>(R.id.button7Done)
 
 
-
+            //update data for profile
             button7Done.setOnClickListener {
                 val fullname = editTextTextPersonName.text.toString()
                 val email = editTextUsername.text.toString()
@@ -89,27 +93,24 @@ class ProfileFragment : Fragment() {
 
                 customEditDialog.show()
                 customEditDialog.dismiss()
-
-
             }
+
+
 
             button6Cancel.setOnClickListener {
                 var i = Intent(this.context, MainActivity::class.java)
                 startActivity(i)
-
-
             }
+        }
 
+        //get data from firebase
+        userViewModel.getUserData().observe(viewLifecycleOwner) {
 
         }
 
 
 
-
-
         return v
-
-
     }
 
 }
