@@ -22,7 +22,7 @@ class UserRepository {
         db.collection("users").document(auth.currentUser?.uid.toString())
             .addSnapshotListener { users, error ->
                 if (users != null) {
-                    val fullname = users["fullname"] as String
+                    val fullname = users["fullname"] as String? ?: ""
                     val username = users["username"] as String? ?: ""
                     val photo = users["photo"] as String? ?: ""
 

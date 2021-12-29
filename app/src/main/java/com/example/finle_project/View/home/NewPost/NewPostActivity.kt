@@ -6,9 +6,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finle_project.Model.MyPost
+import com.example.finle_project.R
+import com.example.finle_project.View.home.MainActivity
 import com.example.finle_project.databinding.ActivityNewPostBinding
 import com.example.finle_project.util.ImageEncoding
 import com.example.finle_project.viewModel.PostViewModel
@@ -23,21 +26,9 @@ class NewPostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNewPostBinding.inflate(layoutInflater)
 
+        var myToolbar = findViewById<Toolbar>(R.id.myToolbar)
 
 
-//        vm.getAllPosts().observe(this,{
-//
-//            currentPost= it[0]//
-//
-//            if (currentPost.imageUrl.length>120){
-//                binding.imageViewNewPost.setImageBitmap(decodePicFromApi(currentPost.imageUrl))
-//            } else {
-//                Picasso.get().load(currentPost.imageUrl).into(binding.imageViewNewPost)
-//            }
-//           binding.textCaption.text=currentPost.caption.
-//
-//
-//        })
         binding.imageViewNewPost.setOnClickListener {
             //binding.imageViewNewPost.setImageBitmap(decodePicFromApi(currentPost.imageUrl))
             onActivityResult(0, 0, intent)
@@ -82,19 +73,9 @@ class NewPostActivity : AppCompatActivity() {
                 finish()
             }
         }
+
+
     }
-
-
-
-//    fun decodePicFromApi(encodedString: String): Bitmap {
-//
-//        println(encodedString)
-//        val imageBytes = Base64.decode(encodedString, Base64.DEFAULT)
-//        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-//
-//        return decodedImage
-//    }
-
 
 }
 

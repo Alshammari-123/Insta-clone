@@ -6,6 +6,6 @@ data class MyPost(
     var caption: String,
     val id: String?,
     val imageUrl: String,
-    val likes: Int,
+    var likes: Int,
     val userId: String
 ): Serializable

@@ -23,6 +23,12 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         var v = inflater.inflate(R.layout.fragment_blank_home, container, false)
         recyclerView = v.findViewById(R.id.homeRecyclerView)
+
+
+
+
+
+
         return v
     }
 

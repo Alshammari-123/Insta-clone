@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
 
-    tools:context=".View.home.chat_fragment.Chat_Fragment">
+    tools:context=".View.home.chat_fragment.ChatFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userRecyclerView"

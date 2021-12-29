@@ -15,9 +15,12 @@
             android:id="@+id/sentMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingStart="24dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="10dp"
             android:text="This is sent message"
             android:textColor="@color/black"
-            android:padding="10dp"
             android:textSize="18dp" />
     </RelativeLayout>
 

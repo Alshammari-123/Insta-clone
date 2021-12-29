@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,8 +15,7 @@ import com.example.finle_project.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
-
-class Chat_Fragment : Fragment() {
+class ChatFragment : Fragment() {
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var userList: MutableList<UserChate>
     private lateinit var adapter: UserAdapter
@@ -32,6 +32,7 @@ class Chat_Fragment : Fragment() {
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().reference
 
+
         userList = mutableListOf()
         adapter = UserAdapter(requireActivity().applicationContext, userList)
         userRecyclerView = v.findViewById(R.id.userRecyclerView)
@@ -42,10 +43,10 @@ class Chat_Fragment : Fragment() {
         mDbRef.child("users").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 //                userList.clear()
-                Log.d("Chat_Fragment", "onDataChange: ${snapshot.children.count()}")
+                Log.d("ChatFragment", "onDataChange: ${snapshot.children.count()}")
                 for (postSnapshot in snapshot.children) {
                     val currentUser = postSnapshot.getValue(UserChate::class.java)
-                    Log.d("Chat_Fragment", "onDataChange: ${currentUser!!.name}")
+                    Log.d("ChatFragment", "onDataChange: ${currentUser!!.name}")
                     adapter.appendData(currentUser)
 
 //                    if (mAuth.currentUser?.uid != currentUser?.uid){
@@ -59,19 +60,6 @@ class Chat_Fragment : Fragment() {
         })
 
         return v
-
-
-    }
-
-//for logout
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.toolbar) {
-            mAuth.signOut()
-
-            return true
-        }
-        return true
     }
 
 }

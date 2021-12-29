@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finle_project.Model.Message
@@ -28,6 +29,20 @@ class ChatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
+
+        var myToolbar = findViewById<Toolbar>(R.id.myToolbar)
+        myToolbar.setOnMenuItemClickListener {
+
+
+            when (it.itemId){
+                R.id.back ->{
+                    finish()
+                }
+
+            }
+            true
+
+        }
 
         val name = intent.getStringExtra("name")
         val receverUid = intent.getStringExtra("uid")
@@ -76,9 +91,10 @@ class ChatActivity : AppCompatActivity() {
                  .setValue(messageObject).addOnSuccessListener {
                      mDbRef.child("chats").child(receiverRoom!!).child("messages").push()
                          .setValue(messageObject)
+                     messageBox.setText("")
                  }
 
          }
-        messageBox.setText("**")
+
     }
 }

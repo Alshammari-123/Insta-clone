@@ -34,19 +34,21 @@
         android:layout_width="64dp"
         android:layout_height="43dp"
         android:layout_marginTop="10dp"
-        android:text="Likes"
+        android:text="@string/likes"
         app:layout_constraintStart_toEndOf="@+id/imageButton_like"
         app:layout_constraintTop_toBottomOf="@+id/textView13Comments" />
 
     <TextView
         android:id="@+id/textView13Comments"
-        android:layout_width="308dp"
-        android:layout_height="79dp"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
-        android:hint="caption"
+        android:layout_marginEnd="1dp"
+        android:hint="@string/caption"
         android:paddingStart="15dp"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3HomePost" />
 
