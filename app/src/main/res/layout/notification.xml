@@ -24,6 +24,7 @@
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/app_logo"
             android:text="Title"
+            android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -35,6 +36,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/app_logo"
             android:text="This is description"
+            android:textColor="@color/black"
             android:textSize="20dp" />
 
 
