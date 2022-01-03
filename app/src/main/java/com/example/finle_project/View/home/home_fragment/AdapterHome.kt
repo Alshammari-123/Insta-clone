@@ -1,6 +1,8 @@
 package com.example.finle_project.View.home.home_fragment
 
 import android.content.Context
+import android.location.Address
+import android.location.Geocoder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +14,8 @@ import com.example.finle_project.Model.MyPost
 import com.example.finle_project.R
 import com.example.finle_project.Repository.PostRepository
 import com.example.finle_project.util.ImageEncoding
+import com.google.android.gms.maps.model.LatLng
+import java.io.IOException
 
 
 class AdapterHome(private var data: List<MyPost>) : RecyclerView.Adapter<Homeholder>() {
@@ -40,16 +44,40 @@ class AdapterHome(private var data: List<MyPost>) : RecyclerView.Adapter<Homehol
             repository.updatePost(newPost)
         }
 
+        val postLocation = data[position].userLocation
+
+        if (postLocation != null) {
+            val splitLocation = postLocation.split(",")
+            val latLng = LatLng(splitLocation[0].toDouble(), splitLocation[1].toDouble())
+            holder.postLocationTextView.text = getAddressFromLocation(latLng)
+        }
     }
 
     override fun getItemCount(): Int {
         return data.size
     }
+
+    fun getAddressFromLocation(location: LatLng): String {
+        val geocoder = Geocoder(context)
+        var address: String? = null
+
+        try {
+            val addresses: List<Address> =
+                geocoder.getFromLocation(location.latitude, location.longitude, 1)
+            if (addresses.isNotEmpty()) {
+                address = addresses[0].getAddressLine(0)
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return address ?: "No address found"
+    }
 }
 
 class Homeholder(v: View) : RecyclerView.ViewHolder(v) {
 
-
+    var postLocationTextView = v.findViewById<TextView>(R.id.postLocationTextView)
     var imageView3HomePost = v.findViewById<ImageView>(R.id.imageView3HomePost)
     var textView13Comments = v.findViewById<TextView>(R.id.textView13Comments)
     var imageButton_like = v.findViewById<ImageButton>(R.id.imageButton_like)

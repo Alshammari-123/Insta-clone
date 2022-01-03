@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -18,22 +17,22 @@ import com.example.finle_project.View.home.home_fragment.HomeFragment
 import com.example.finle_project.View.home.profile_fragment.ProfileFragment
 import com.example.finle_project.View.home.search_fragment.SearchFragment
 import com.example.finle_project.View.login.Login
+import com.example.finle_project.nutel.SharedHelper
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
-   // lateinit var fusedLocationProviderClient: FusedLocationProviderClient
+    lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        //Location
-//        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-//
-//        fetchLocation()
+        //Location
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+
+        fetchLocation()
 
 
         FirebaseMessaging.getInstance().token.addOnSuccessListener {
@@ -87,8 +86,8 @@ class MainActivity : AppCompatActivity() {
 //                    setLocale("ar")
 //                    finish()
 //                }
-                R.id.setting ->{
-                    var i = Intent(this,SettingActivity::class.java)
+                R.id.setting -> {
+                    var i = Intent(this, SettingActivity::class.java)
                     startActivity(i)
 
                 }
@@ -96,27 +95,36 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
-// for Location
-//    private fun fetchLocation() {
-//    val task = fusedLocationProviderClient.lastLocation
-//
-//       if (ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION)
-//       != PackageManager.PERMISSION_GRANTED && ActivityCompat
-//               .checkSelfPermission(this,android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
-//
-//       ){
-//           ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 101)
-//           return
-//       }
-//
-//           task.addOnSuccessListener {
-//               if (it != null){
-//                   Toast.makeText(applicationContext, "${it.latitude} ${it.latitude}", Toast.LENGTH_SHORT).show()
-//               }
-//           }
-//    }
 
+    //for Location
+    private fun fetchLocation() {
+        val task = fusedLocationProviderClient.lastLocation
 
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            != PackageManager.PERMISSION_GRANTED && ActivityCompat
+                .checkSelfPermission(
+                    this,
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
+
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                101
+            )
+            return
+        }
+
+        task.addOnSuccessListener {
+            if (it != null) {
+                SharedHelper.saveUserLocation(this, "${it.latitude},${it.longitude}")
+            }
+        }
+    }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

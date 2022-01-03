@@ -7,5 +7,6 @@ data class MyPost(
     val id: String?,
     val imageUrl: String,
     var likes: Int,
-    val userId: String
+    val userId: String,
+    val userLocation: String? = null
 ): Serializable

@@ -11,7 +11,6 @@ class PostViewModel : ViewModel() {
     private val postRep = PostRepository()
 
     fun getAllPosts(): MutableLiveData<List<MyPost>> {
-
         val mLiveData = MutableLiveData<List<MyPost>>()
         postRep.getAllPost().observeForever {
             mLiveData.postValue(it)

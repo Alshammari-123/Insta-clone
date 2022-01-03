@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.finle_project.Model.MyPost
 import com.example.finle_project.R
 import com.example.finle_project.databinding.ActivityNewPostBinding
+import com.example.finle_project.nutel.SharedHelper
 import com.example.finle_project.util.ImageEncoding
 import com.example.finle_project.viewModel.PostViewModel
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -70,6 +71,7 @@ class NewPostActivity : AppCompatActivity() {
     fun codApi(uri: Uri) {
         val encodedImage = ImageEncoding.encodeBase64(uri)
         val caption = binding.textCaption.text.toString()
+        val userLocation = SharedHelper.getUserLocation(this)!!
         val currentPost =
             FirebaseAuth.getInstance().currentUser?.let {
                 MyPost(
@@ -77,7 +79,8 @@ class NewPostActivity : AppCompatActivity() {
                     null,
                     encodedImage,
                     0,
-                    it.uid
+                    it.uid,
+                    userLocation
                 )
             }
 
