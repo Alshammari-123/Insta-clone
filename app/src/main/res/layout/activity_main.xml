@@ -67,14 +67,4 @@
         app:layout_constraintTop_toBottomOf="@+id/myToolbar"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="62dp"
-        android:background="@drawable/image_raounded"
-        app:layout_constraintBottom_toTopOf="@+id/myTabLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/message" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

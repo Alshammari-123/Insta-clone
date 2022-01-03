@@ -11,7 +11,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finle_project.Model.MyPost
 import com.example.finle_project.R
-import com.example.finle_project.View.home.MainActivity
 import com.example.finle_project.databinding.ActivityNewPostBinding
 import com.example.finle_project.util.ImageEncoding
 import com.example.finle_project.viewModel.PostViewModel
@@ -28,6 +27,14 @@ class NewPostActivity : AppCompatActivity() {
 
         var myToolbar = findViewById<Toolbar>(R.id.myToolbar)
 
+//        myToolbar.setOnMenuItemClickListener {
+//            when (it.itemId) {
+//                R.id.back -> {
+//                    finish()
+//                }
+//            }
+//            true
+//        }
 
         binding.imageViewNewPost.setOnClickListener {
             //binding.imageViewNewPost.setImageBitmap(decodePicFromApi(currentPost.imageUrl))
@@ -64,7 +71,15 @@ class NewPostActivity : AppCompatActivity() {
         val encodedImage = ImageEncoding.encodeBase64(uri)
         val caption = binding.textCaption.text.toString()
         val currentPost =
-            FirebaseAuth.getInstance().currentUser?.let { MyPost(caption, null, encodedImage, 0, it.uid) }
+            FirebaseAuth.getInstance().currentUser?.let {
+                MyPost(
+                    caption,
+                    null,
+                    encodedImage,
+                    0,
+                    it.uid
+                )
+            }
 
         Log.i("NewPostActivityPost", currentPost.toString())
         currentPost?.let {
@@ -73,10 +88,7 @@ class NewPostActivity : AppCompatActivity() {
                 finish()
             }
         }
-
-
     }
-
 }
 
 

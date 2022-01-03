@@ -15,10 +15,23 @@
     <string name="change_profile_photo">Change Profile Photo</string>
     <string name="cancel">Cancel</string>
     <string name="done">Done</string>
-    <string name="turki">Turki</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="username">Username</string>
     <string name="this_is_receive_message">This is receive message</string>
     <string name="likes">Likes</string>
     <string name="caption">caption</string>
+    <string name="tayp_a_message">Tayp a message</string>
+    <string name="post">Post</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="language">Language</string>
+    <string name="save">Save</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="_900">900</string>
+    <string name="_100">100</string>
+    <string name="account">Account</string>
+    <string name="this_is_sent_message">This is sent message</string>
+    <string name="turki">Turki</string>
+    <string name="notification">Notification</string>
+    <string name="setting">Setting</string>
 </resources>

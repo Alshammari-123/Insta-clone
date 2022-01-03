@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Finle_Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".View.Notification.NotificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.home.Setting.SettingActivity"
             android:exported="false" />
         <activity

@@ -2,6 +2,7 @@ package com.example.finle_project.View.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -17,12 +18,17 @@ import com.example.finle_project.View.home.search_fragment.SearchFragment
 import com.example.finle_project.View.login.Login
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.messaging.FirebaseMessaging
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        FirebaseMessaging.getInstance().token.addOnSuccessListener {
+            Log.d("FirebaseMessagingToken", "onCreate: $it")
+        }
 
         var myTabLayout = findViewById<TabLayout>(R.id.myTabLayout)
         var myToolbar = findViewById<Toolbar>(R.id.myToolbar)

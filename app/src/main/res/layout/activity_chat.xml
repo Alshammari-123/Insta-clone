@@ -37,7 +37,7 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/raounded_text"
             android:ems="10"
-            android:hint="Tayp a message"
+            android:hint="@string/tayp_a_message"
             android:inputType="textPersonName"
             android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"

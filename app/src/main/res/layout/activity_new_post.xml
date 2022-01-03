@@ -14,7 +14,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/button"
-        android:text="Post"
+        android:text="@string/post"
         android:textColor="#151515"
         android:textSize="24sp"
         android:textStyle="bold"

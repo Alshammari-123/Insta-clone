@@ -19,7 +19,7 @@
             android:paddingTop="10dp"
             android:paddingEnd="24dp"
             android:paddingBottom="10dp"
-            android:text="This is sent message"
+            android:text="@string/this_is_sent_message"
             android:textColor="@color/black"
             android:textSize="18dp" />
     </RelativeLayout>
