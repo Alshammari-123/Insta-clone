@@ -10,7 +10,7 @@ import android.widget.RemoteViews
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.example.finle_project.R
-import com.example.finle_project.View.home.MainActivity
+import com.example.finle_project.View.home.MainActivity.MainActivity
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 

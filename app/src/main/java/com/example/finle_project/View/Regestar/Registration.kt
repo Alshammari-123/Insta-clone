@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finle_project.Model.UserChate
 import com.example.finle_project.R
-import com.example.finle_project.View.home.MainActivity
+import com.example.finle_project.View.home.MainActivity.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference

@@ -1,17 +1,18 @@
-package com.example.finle_project.View.home
+package com.example.finle_project.View.home.MainActivity
 
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import com.example.finle_project.R
 import com.example.finle_project.View.home.NewPost.NewPostActivity
 import com.example.finle_project.View.home.Setting.SettingActivity
+import com.example.finle_project.View.home.Vido.AddVideosActivity
+import com.example.finle_project.View.home.Vido.VideosActivity
 import com.example.finle_project.View.home.chat_fragment.ChatFragment
 import com.example.finle_project.View.home.home_fragment.HomeFragment
 import com.example.finle_project.View.home.profile_fragment.ProfileFragment
@@ -20,6 +21,7 @@ import com.example.finle_project.View.login.Login
 import com.example.finle_project.nutel.SharedHelper
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
@@ -41,24 +43,45 @@ class MainActivity : AppCompatActivity() {
 
         var myTabLayout = findViewById<TabLayout>(R.id.myTabLayout)
         var myToolbar = findViewById<Toolbar>(R.id.myToolbar)
+        var floatingActionButton = findViewById<FloatingActionButton>(R.id.floatingActionButton)
+        floatingActionButton.setOnClickListener {
+            var i = Intent(this,VideosActivity::class.java)
+            startActivity(i)
+        }
 
         setSupportActionBar(myToolbar)
 
         myTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {
-                    0 -> supportFragmentManager.beginTransaction()
-                        .replace(R.id.home_fragment_container_view, HomeFragment())
-                        .commit()
-                    1 -> supportFragmentManager.beginTransaction()
-                        .replace(R.id.home_fragment_container_view, ChatFragment())
-                        .commit()
-                    2 -> supportFragmentManager.beginTransaction()
-                        .replace(R.id.home_fragment_container_view, SearchFragment())
-                        .commit()
-                    3 -> supportFragmentManager.beginTransaction()
-                        .replace(R.id.home_fragment_container_view, ProfileFragment())
-                        .commit()
+                    0 -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.home_fragment_container_view, HomeFragment())
+                            .commit()
+
+                        myToolbar.title = "Home"
+                    }
+                    1 -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.home_fragment_container_view, ChatFragment())
+                            .commit()
+
+                        myToolbar.title = "Chat"
+                    }
+                    2 -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.home_fragment_container_view, SearchFragment())
+                            .commit()
+
+                        myToolbar.title = "Search"
+                    }
+                    3 -> {
+                        supportFragmentManager.beginTransaction()
+                            .replace(R.id.home_fragment_container_view, ProfileFragment())
+                            .commit()
+
+                        myToolbar.title = "Profile"
+                    }
                 }
             }
 
@@ -82,10 +105,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 }
-//                R.id.language -> {
-//                    setLocale("ar")
-//                    finish()
-//                }
+
                 R.id.setting -> {
                     var i = Intent(this, SettingActivity::class.java)
                     startActivity(i)

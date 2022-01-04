@@ -28,15 +28,6 @@ class NewPostActivity : AppCompatActivity() {
 
         var myToolbar = findViewById<Toolbar>(R.id.myToolbar)
 
-//        myToolbar.setOnMenuItemClickListener {
-//            when (it.itemId) {
-//                R.id.back -> {
-//                    finish()
-//                }
-//            }
-//            true
-//        }
-
         binding.imageViewNewPost.setOnClickListener {
             //binding.imageViewNewPost.setImageBitmap(decodePicFromApi(currentPost.imageUrl))
             onActivityResult(0, 0, intent)

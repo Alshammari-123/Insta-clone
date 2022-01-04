@@ -20,6 +20,7 @@ private lateinit var sentButton: ImageView
 private lateinit var messageAdapter: MessageAdapter
 private lateinit var messageList: ArrayList<Message>
 private lateinit var mDbRef :DatabaseReference
+private lateinit var mAuth: FirebaseAuth
 
 var receiverRoom:String? = null
 var senderRoom:String? = null
@@ -31,18 +32,18 @@ class ChatActivity : AppCompatActivity() {
         setContentView(R.layout.activity_chat)
 
         var myToolbar = findViewById<Toolbar>(R.id.myToolbar)
-        myToolbar.setOnMenuItemClickListener {
+         myToolbar.setOnMenuItemClickListener {
+             when(it.itemId){
+                 R.id.back ->{
+                     finish()
+                     true
+                 }
+                 else -> {true}
+             }
+         }
 
 
-            when (it.itemId){
-                R.id.back ->{
-                    finish()
-                }
 
-            }
-            true
-
-        }
 
         val name = intent.getStringExtra("name")
         val receverUid = intent.getStringExtra("uid")
@@ -70,8 +71,12 @@ class ChatActivity : AppCompatActivity() {
 
                     messageList.clear()
                     for (postSnapshot in snapshot.children){
-                        val message = postSnapshot.getValue(Message::class.java)
-                        messageList.add(message!!)
+                        val currentUser = postSnapshot.getValue(Message::class.java)
+
+                        // for user how login in chat
+                      //  if (mAuth.currentUser?.uid!= currentUser?.uid){
+                            messageList.add(currentUser!!)
+                        //}
 
                     }
                     messageAdapter.notifyDataSetChanged()
@@ -85,7 +90,7 @@ class ChatActivity : AppCompatActivity() {
         //add message to database
          sentButton.setOnClickListener {
              val message = messageBox.text.toString()
-             val messageObject = Message(message,senderUid)
+             val messageObject = Message(message,senderUid,uid = null)
 
              mDbRef.child("chats").child(senderRoom!!).child("messages").push()
                  .setValue(messageObject).addOnSuccessListener {

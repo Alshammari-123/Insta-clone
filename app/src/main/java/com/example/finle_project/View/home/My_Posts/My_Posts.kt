@@ -19,9 +19,19 @@ class My_Posts : AppCompatActivity() {
         var imageButtonLikePost = findViewById<ImageButton>(R.id.imageButtonLikePost)
         var imageViewDelete = findViewById<ImageView>(R.id.imageViewDelete)
         var caption = findViewById<EditText>(R.id.caption)
-        var accountUser = findViewById<TextView>(R.id.accountUser)
-        var profilePhoto = findViewById<ImageView>(R.id.ProfilePhoto)
         var imageViewDone = findViewById<ImageView>(R.id.imageViewDone)
+        var myToolbarPost = findViewById<Toolbar>(R.id.myToolbarPost)
+
+        myToolbarPost.setOnMenuItemClickListener {
+            when(it.itemId){
+                R.id.back ->{
+                    finish()
+                    true
+                }
+
+                else -> {true}
+            }
+        }
 
         var post = intent.getSerializableExtra("details") as MyPost
 

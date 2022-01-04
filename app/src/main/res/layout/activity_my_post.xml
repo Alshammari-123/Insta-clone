@@ -7,13 +7,15 @@
 
     <ImageView
         android:id="@+id/imageViewMyPost"
-        android:layout_width="411dp"
-        android:layout_height="260dp"
-        android:layout_marginTop="160dp"
+        android:layout_width="412dp"
+        android:layout_height="227dp"
+        android:layout_marginTop="85dp"
         android:paddingRight="20dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myToolbar"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
@@ -25,28 +27,8 @@
         app:srcCompat="@drawable/ic_baseline_favorite_border_24"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-    <ImageView
-        android:id="@+id/ProfilePhoto"
-        android:layout_width="96dp"
-        android:layout_height="81dp"
-        android:layout_marginStart="5dp"
-        android:background="@drawable/image_raounded"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewMyPost"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/accountUser"
-        android:layout_width="192dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="10dp"
-        android:paddingStart="15dp"
-        android:text="Username"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewMyPost"
-        app:layout_constraintStart_toEndOf="@+id/ProfilePhoto" />
-
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/myToolbarPost"
+        android:id="@+id/myToolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/my_color"
@@ -55,14 +37,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/tool_bar"
-        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+        app:menu="@menu/menu_chat"
         app:title="My post" />
 
     <EditText
         android:id="@+id/caption"
-        android:layout_width="281dp"
-        android:layout_height="96dp"
+        android:layout_width="277dp"
+        android:layout_height="64dp"
         android:ems="10"
         android:hint="caption"
         android:inputType="textPersonName"

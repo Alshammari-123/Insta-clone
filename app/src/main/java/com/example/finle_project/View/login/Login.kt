@@ -1,7 +1,6 @@
 package com.example.finle_project.View.login
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -10,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finle_project.R
 import com.example.finle_project.View.Regestar.Registration
-import com.example.finle_project.View.home.MainActivity
+import com.example.finle_project.View.home.MainActivity.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.google.firebase.auth.ktx.auth

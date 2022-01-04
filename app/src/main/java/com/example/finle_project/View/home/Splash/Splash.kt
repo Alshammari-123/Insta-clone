@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import com.airbnb.lottie.LottieAnimationView
 import com.example.finle_project.R
-import com.example.finle_project.View.home.MainActivity
 import com.example.finle_project.View.login.Login
 
 class Splash : AppCompatActivity() {
