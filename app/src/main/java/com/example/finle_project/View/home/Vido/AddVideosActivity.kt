@@ -4,29 +4,27 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.TextUtils
 import android.widget.*
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.finle_project.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import java.util.jar.Manifest
 
 class AddVideosActivity : AppCompatActivity() {
 
     private lateinit var actionBar: ActionBar
     private val VIDEO_PICK_GALLERY_CODE = 100
     private val VIDEO_PICK_CAMERA_CODE = 101
-    private val CAMERA_REQUEST_CODE= 102
-    private lateinit var cameraPermission:Array<String>
+    private val CAMERA_REQUEST_CODE = 102
+    private lateinit var cameraPermission: Array<String>
     private var videoUri: Uri? = null
     private lateinit var progressDialog: ProgressDialog
 
@@ -39,15 +37,16 @@ class AddVideosActivity : AppCompatActivity() {
         var pickVideoFab = findViewById<FloatingActionButton>(R.id.pickVideoFab)
 
 
-
-
-       // init actionBar
+        // init actionBar
 //        actionBar = supportActionBar!!
 //        actionBar.title = "Add New Video"
 //        actionBar.setDisplayHomeAsUpEnabled(true)
 //        actionBar.setDisplayShowHomeEnabled(true)
 
-        cameraPermission = arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        cameraPermission = arrayOf(
+            android.Manifest.permission.CAMERA,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
         // init progressbar
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please wait")
@@ -58,15 +57,13 @@ class AddVideosActivity : AppCompatActivity() {
         uplodVideo.setOnClickListener {
             // get title
             title = titleEt.text.toString().trim()
-            if (TextUtils.isEmpty(title)){
+            if (TextUtils.isEmpty(title)) {
                 // no title is entered
                 Toast.makeText(this, "Title is requirad", Toast.LENGTH_SHORT).show()
-            }
-            else if (videoUri == null){
+            } else if (videoUri == null) {
                 // video is not picked
                 Toast.makeText(this, "Pick the video first", Toast.LENGTH_SHORT).show()
-            }
-            else{
+            } else {
                 // title entered , video picked , so now upload
                 uploadVideoFirebase()
 
@@ -75,34 +72,34 @@ class AddVideosActivity : AppCompatActivity() {
 
         // handel click , pick video
         pickVideoFab.setOnClickListener {
-          videoPickDialog()
+            videoPickDialog()
         }
 
     }
 
     private fun uploadVideoFirebase() {
-      // show progress
+        // show progress
         progressDialog.show()
         //timestamp
-        val timestamp = ""+System.currentTimeMillis()
+        val timestamp = "" + System.currentTimeMillis()
         // file path and name in firebase
         val filePathAndName = "Videos/video_$timestamp"
 
         //storge reference
-        val storageRefrence =FirebaseStorage.getInstance().getReference(filePathAndName)
+        val storageRefrence = FirebaseStorage.getInstance().getReference(filePathAndName)
         // upload video useing uri of storage
         storageRefrence.putFile(videoUri!!)
-            .addOnSuccessListener {taskSnapshot ->
+            .addOnSuccessListener { taskSnapshot ->
 
                 // upload , get url of upload video
-                val uriTask =taskSnapshot.storage.downloadUrl
+                val uriTask = taskSnapshot.storage.downloadUrl
                 while (!uriTask.isSuccessful);
                 val downladUri = uriTask.result
-                if (uriTask.isSuccessful){
+                if (uriTask.isSuccessful) {
                     // video url is received successfully
 
                     //now we cann add video details to firebase
-                    val hashMap = HashMap<String , Any>()
+                    val hashMap = HashMap<String, Any>()
                     hashMap["id"] = "$timestamp"
                     hashMap["title"] = "$title"
                     hashMap["timestamp"] = "$timestamp"
@@ -112,21 +109,21 @@ class AddVideosActivity : AppCompatActivity() {
                     val dbReference = FirebaseDatabase.getInstance().getReference("Video")
                     dbReference.child(timestamp)
                         .setValue(hashMap)
-                        .addOnSuccessListener {taskSnapshot ->
+                        .addOnSuccessListener { taskSnapshot ->
                             // video info added successFully
                             progressDialog.dismiss()
                             Toast.makeText(this, "Video Upladed", Toast.LENGTH_SHORT).show()
                         }
-                        .addOnFailureListener { e->
+                        .addOnFailureListener { e ->
                             //failed adding video inf 
                             Toast.makeText(this, "${e.message}", Toast.LENGTH_SHORT).show()
-                            
+
                         }
 
                 }
 
             }
-            .addOnFailureListener{e->
+            .addOnFailureListener { e ->
                 //failed uploading
                 progressDialog.dismiss()
                 Toast.makeText(this, "${e.message}", Toast.LENGTH_SHORT).show()
@@ -137,54 +134,52 @@ class AddVideosActivity : AppCompatActivity() {
     private fun setVideoToVideoView() {
 // video play control
         val mediaController = MediaController(this)
-    val videoView = findViewById<VideoView>(R.id.videoView)
-    mediaController.setAnchorView(videoView)
+        val videoView = findViewById<VideoView>(R.id.videoView)
+        mediaController.setAnchorView(videoView)
 
-    // set media contrllopler
-    videoView.setMediaController(mediaController)
-    // set video uri
-    videoView.setVideoURI(videoUri)
-    videoView.requestFocus()
-    videoView.setOnPreparedListener {
-        // when video is ready, by default don't play outomatically
-        videoView.pause()
+        // set media contrllopler
+        videoView.setMediaController(mediaController)
+        // set video uri
+        videoView.setVideoURI(videoUri)
+        videoView.requestFocus()
+        videoView.setOnPreparedListener {
+            // when video is ready, by default don't play outomatically
+            videoView.pause()
 
 
-    }
+        }
 
 
     }
 
     private fun videoPickDialog() {
         // options to display in dialog
-        val options = arrayOf("Camera","Gallery")
+        val options = arrayOf("Camera", "Gallery")
         //aler dialog
         val builder = AlertDialog.Builder(this)
         //title
         builder.setTitle("Pick Video From")
-            .setItems(options){ dialogInterface, i ->
+            .setItems(options) { dialogInterface, i ->
                 // handel itme clicks
-            if (i == 0){
-                // camera clicked
-                if (!checkCameraPermissions()){
-                    // permissions was not allowed
-                    requestCameraPermissions()
-                }
-                else{
-                    videoPickCamera()
-                }
+                if (i == 0) {
+                    // camera clicked
+                    if (!checkCameraPermissions()) {
+                        // permissions was not allowed
+                        requestCameraPermissions()
+                    } else {
+                        videoPickCamera()
+                    }
 
-            }
-                else{
+                } else {
                     //gallery clicked
-                   videoPickGallery()
+                    videoPickGallery()
+                }
             }
-        }
             .show()
     }
 
-    private fun requestCameraPermissions(){
-      // requset camera permission
+    private fun requestCameraPermissions() {
+        // requset camera permission
         ActivityCompat.requestPermissions(
             this,
             cameraPermission,
@@ -192,12 +187,12 @@ class AddVideosActivity : AppCompatActivity() {
         )
     }
 
-    private fun checkCameraPermissions():Boolean{
+    private fun checkCameraPermissions(): Boolean {
         // check if camera permissions i.e. camera and storage is allowed or not
-     val result1 = ContextCompat.checkSelfPermission(
-         this,
-         android.Manifest.permission.CAMERA
-     ) == PackageManager.PERMISSION_GRANTED
+        val result1 = ContextCompat.checkSelfPermission(
+            this,
+            android.Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED
 
         val result2 = ContextCompat.checkSelfPermission(
             this,
@@ -206,20 +201,21 @@ class AddVideosActivity : AppCompatActivity() {
         return result1 && result2
     }
 
-    private fun videoPickGallery(){
+    private fun videoPickGallery() {
         // video pick intent gallery
         val intent = Intent()
-        intent.type="video/*"
+        intent.type = "video/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(
             Intent.createChooser(intent, "Choose video"),
             VIDEO_PICK_CAMERA_CODE
         )
     }
-    private fun  videoPickCamera(){
+
+    private fun videoPickCamera() {
         //video pick intent camera
         val intent = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
-        startActivityForResult(intent,VIDEO_PICK_CAMERA_CODE)
+        startActivityForResult(intent, VIDEO_PICK_CAMERA_CODE)
 
     }
 
@@ -227,28 +223,28 @@ class AddVideosActivity : AppCompatActivity() {
         onBackPressed()
         return super.onSupportNavigateUp()
     }
-// handel permission results*/
+
+    // handel permission results*/
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-    when(requestCode){
-        CAMERA_REQUEST_CODE->
-            if (grantResults.size>0){
-            //check if permission allowed or denied
-                val cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED
-                val storageAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED
-                if (cameraAccepted&&storageAccepted){
-                    //both permission allowed
-                    videoPickCamera()
+        when (requestCode) {
+            CAMERA_REQUEST_CODE ->
+                if (grantResults.size > 0) {
+                    //check if permission allowed or denied
+                    val cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    val storageAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED
+                    if (cameraAccepted && storageAccepted) {
+                        //both permission allowed
+                        videoPickCamera()
+                    } else {
+                        //both or one of those are denied
+                        Toast.makeText(this, "Parmission donied", Toast.LENGTH_SHORT).show()
+                    }
                 }
-                else{
-                    //both or one of those are denied
-                    Toast.makeText(this, "Parmission donied", Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
+        }
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
@@ -256,18 +252,16 @@ class AddVideosActivity : AppCompatActivity() {
     // handle video pick result
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
-        if (resultCode == RESULT_OK){
-           //video is pick from camera or gallery
-          if (requestCode == VIDEO_PICK_CAMERA_CODE){
-             videoUri == data!!.data
-              setVideoToVideoView()
-          }
-            else if (requestCode == VIDEO_PICK_GALLERY_CODE){
-             videoUri = data!!.data
-              setVideoToVideoView()
-          }
-        }
-        else{
+        if (resultCode == RESULT_OK) {
+            //video is pick from camera or gallery
+            if (requestCode == VIDEO_PICK_CAMERA_CODE) {
+                videoUri = data!!.data
+                setVideoToVideoView()
+            } else if (requestCode == VIDEO_PICK_GALLERY_CODE) {
+                videoUri = data!!.data
+                setVideoToVideoView()
+            }
+        } else {
             // canclled picking
             Toast.makeText(this, " Canclled", Toast.LENGTH_SHORT).show()
 

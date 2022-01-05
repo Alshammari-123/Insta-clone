@@ -14,35 +14,34 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.finle_project.Model.ModelVideo
 import com.example.finle_project.R
 import java.util.*
-import kotlin.collections.ArrayList
 
-class AdapterVideo(private var context:Context, private var videoArrayList :ArrayList<ModelVideo>?):RecyclerView.Adapter<AdapterVideo.HolderVideo> (){
-
-
+class AdapterVideo(
+    private var context: Context,
+    private var videoArrayList: ArrayList<ModelVideo>?
+) : RecyclerView.Adapter<AdapterVideo.HolderVideo>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderVideo {
-        val view = LayoutInflater.from(context).inflate(R.layout.rew_video,parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.rew_video, parent, false)
         return HolderVideo(view)
     }
 
     override fun onBindViewHolder(holder: HolderVideo, position: Int) {
-
+        holder.setIsRecyclable(false)
         val modelVideo = videoArrayList!![position]
-        val id:String? = modelVideo.id
-        val title:String? = modelVideo.title
-        val timestamp:String? = modelVideo.timestamp
-        val videoUri:String? = modelVideo.videoUri
+        val id: String? = modelVideo.id
+        val title: String? = modelVideo.title
+        val timestamp: String? = modelVideo.timestamp
+        val videoUri: String? = modelVideo.videoUri
 
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = timestamp!!.toLong()
-        val formattedDateTime= android.text.format.DateFormat.format("dd/MM/yyyy K:mm a",calendar).toString()
+        val formattedDateTime =
+            android.text.format.DateFormat.format("dd/MM/yyyy K:mm a", calendar).toString()
 
-        holder.timeTv.text=title
+        holder.timeTv.text = title
         holder.timeTv.text = formattedDateTime
-        setVideoUri (modelVideo,holder)
-
-
+        setVideoUri(modelVideo, holder)
 
 
     }
@@ -53,7 +52,7 @@ class AdapterVideo(private var context:Context, private var videoArrayList :Arra
         holder.progressBar.visibility = View.VISIBLE
 
         //get video uri
-        val videoUrl:String? = modelVideo.videoUri
+        val videoUrl: String? = modelVideo.videoUri
 
         // MediaController for play/time
         val mediaController = MediaController(context)
@@ -64,30 +63,30 @@ class AdapterVideo(private var context:Context, private var videoArrayList :Arra
         holder.videoView.setVideoURI(videoUri)
         holder.videoView.requestFocus()
 
-        holder.videoView.setOnPreparedListener {mediaPlayer ->
-           //video is prepared to play
+        holder.videoView.setOnPreparedListener { mediaPlayer ->
+            //video is prepared to play
             mediaPlayer.start()
         }
-        holder.videoView.setOnInfoListener(MediaPlayer.OnInfoListener{mp, what, extra ->
-          //check if buffering/ rendering
-            when(what){
-                MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START ->{
+        holder.videoView.setOnInfoListener(MediaPlayer.OnInfoListener { mp, what, extra ->
+            //check if buffering/ rendering
+            when (what) {
+                MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START -> {
                     //rendering started
                     return@OnInfoListener true
 
                 }
-                MediaPlayer.MEDIA_INFO_BUFFERING_START ->{
+                MediaPlayer.MEDIA_INFO_BUFFERING_START -> {
                     //buffering started
-                    holder.progressBar.visibility= View.VISIBLE
+                    holder.progressBar.visibility = View.VISIBLE
                     return@OnInfoListener true
                 }
-                MediaPlayer.MEDIA_INFO_BUFFERING_END ->{
+                MediaPlayer.MEDIA_INFO_BUFFERING_END -> {
                     //buffering ended
                     holder.progressBar.visibility = View.GONE
                     return@OnInfoListener true
                 }
             }
-          false
+            false
         })
 
         holder.videoView.setOnCompletionListener { mediaPlayer ->
@@ -102,13 +101,20 @@ class AdapterVideo(private var context:Context, private var videoArrayList :Arra
         return videoArrayList!!.size
     }
 
-    class HolderVideo(itmeView: View): RecyclerView.ViewHolder(itmeView){
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 
-        var videoView:VideoView=itmeView.findViewById(R.id.videoView)
-        var title : TextView = itmeView.findViewById(R.id.titleTv)
-        var timeTv: TextView= itmeView.findViewById(R.id.timeTv)
-        var progressBar : ProgressBar = itmeView.findViewById(R.id.progressBar)
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
 
+    class HolderVideo(itmeView: View) : RecyclerView.ViewHolder(itmeView) {
+
+        var videoView: VideoView = itmeView.findViewById(R.id.videoView)
+        var title: TextView = itmeView.findViewById(R.id.titleTv)
+        var timeTv: TextView = itmeView.findViewById(R.id.timeTv)
+        var progressBar: ProgressBar = itmeView.findViewById(R.id.progressBar)
 
 
     }
