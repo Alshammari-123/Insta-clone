@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'com.google.gms.google-services'
 
+
 }
 
 android {
@@ -37,6 +38,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {
@@ -83,15 +85,22 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.4.0'
     implementation 'com.google.android.material:material:1.2.1'
     testImplementation 'junit:junit:4.13'
+    implementation 'com.iceteck.silicompressorr:silicompressor:2.2.4'
 
     dependencies {
         // Import the BoM for the Firebase platform
         implementation platform('com.google.firebase:firebase-bom:29.0.3')
 
+        //for cashe
+        implementation 'com.danikula:videocache:2.7.1'
         // Declare the dependencies for the Firebase Cloud Messaging and Analytics libraries
         // When using the BoM, you don't specify versions in Firebase library dependencies
         implementation 'com.google.firebase:firebase-messaging-ktx'
         implementation 'com.google.firebase:firebase-analytics-ktx'
+        implementation 'com.iceteck.silicompressorr:silicompressor:2.2.4'
+        //for cashe
+        implementation 'com.google.android.exoplayer:exoplayer:2.11.1'
+        implementation 'com.google.android.exoplayer:exoplayer-ui:2.11.1'
     }
 
 }

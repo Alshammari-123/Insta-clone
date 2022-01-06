@@ -1,5 +1,6 @@
 package com.example.finle_project.View.home.Vido
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -14,6 +15,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import com.iceteck.silicompressorr.SiliCompressor
 
 class VideosActivity : AppCompatActivity() {
 
@@ -25,6 +27,7 @@ class VideosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_videos)
+
         title = "Vidoes"
 
         var videoViewRv = findViewById<RecyclerView>(R.id.videoViewRv)
@@ -109,5 +112,7 @@ class VideosActivity : AppCompatActivity() {
 //        )
 
 
+
     }
+
 }

@@ -1,6 +1,8 @@
 package com.example.finle_project.View.home.Vido
 
+import android.Manifest
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -13,10 +15,20 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.finle_project.Model.CasheApp.Companion.simpleCache
 import com.example.finle_project.R
+import com.google.android.exoplayer2.upstream.DataSource
+import com.google.android.exoplayer2.upstream.DataSpec
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+import com.google.android.exoplayer2.upstream.cache.CacheKeyFactory
+import com.google.android.exoplayer2.upstream.cache.CacheUtil
+import com.google.android.exoplayer2.util.Util.getUserAgent
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import com.iceteck.silicompressorr.SiliCompressor
+import com.iceteck.silicompressorr.Util
+import com.iceteck.silicompressorr.videocompression.MediaController.mContext
 
 class AddVideosActivity : AppCompatActivity() {
 
@@ -37,15 +49,36 @@ class AddVideosActivity : AppCompatActivity() {
         var pickVideoFab = findViewById<FloatingActionButton>(R.id.pickVideoFab)
 
 
+
+
+
+
+
         // init actionBar
 //        actionBar = supportActionBar!!
 //        actionBar.title = "Add New Video"
 //        actionBar.setDisplayHomeAsUpEnabled(true)
 //        actionBar.setDisplayShowHomeEnabled(true)
 
+        //cashe
+//        val videouri = Uri.parse(videoUri.toString())
+//        val dataSpec = DataSpec(videouri)
+//        val defaultCacheKeyFactory = CacheUtil.DEFAULT_CACHE_KEY_FACTORY
+//        val progressListener =
+//            CacheUtil.ProgressListener { requestLength, bytesCached, newBytesCached ->
+//                val downloadPercentage: Double = (bytesCached * 100.0
+//                        / requestLength)
+//            }
+//        val dataSource: DataSource =
+//            DefaultDataSourceFactory(
+//                mContext,
+//               UInt.getUserAgent(this, getString(R.string.app_name))).createDataSource()
+
+
+
         cameraPermission = arrayOf(
-            android.Manifest.permission.CAMERA,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+            Manifest.permission.CAMERA,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
         // init progressbar
         progressDialog = ProgressDialog(this)
@@ -77,6 +110,24 @@ class AddVideosActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Used to starting caching a video
+     */
+    private fun cacheVideo(
+        dataSpec: DataSpec,
+        defaultCacheKeyFactory: CacheKeyFactory?,
+        dataSource: DataSource,
+        progressListener: CacheUtil.ProgressListener
+    ) {
+        CacheUtil.cache(
+            dataSpec,
+            simpleCache,
+            defaultCacheKeyFactory,
+            dataSource,
+            progressListener,
+            null
+        )
+    }
     private fun uploadVideoFirebase() {
         // show progress
         progressDialog.show()
@@ -89,6 +140,11 @@ class AddVideosActivity : AppCompatActivity() {
         val storageRefrence = FirebaseStorage.getInstance().getReference(filePathAndName)
         // upload video useing uri of storage
         storageRefrence.putFile(videoUri!!)
+            .addOnProgressListener { taskSnapshot ->
+                val progress = (100.0 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount)
+                progressDialog.setMessage("Uploading Video ($progress)")
+                Toast.makeText(this, "Uploaded $progress%", Toast.LENGTH_SHORT).show()
+            }
             .addOnSuccessListener { taskSnapshot ->
 
                 // upload , get url of upload video
