@@ -2,6 +2,7 @@ package com.example.finle_project.View.home.MainActivity
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -9,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import com.example.finle_project.R
+import com.example.finle_project.View.home.EditProfile.EditeProfileActivity
+import com.example.finle_project.View.home.EditProfile.UserProfileActivity
 import com.example.finle_project.View.home.NewPost.NewPostActivity
 import com.example.finle_project.View.home.Setting.SettingActivity
 import com.example.finle_project.View.home.Vido.AddVideosActivity
@@ -110,6 +113,22 @@ class MainActivity : AppCompatActivity() {
                     var i = Intent(this, SettingActivity::class.java)
                     startActivity(i)
 
+                }
+                R.id.Profile -> {
+                    var i = Intent(this,EditeProfileActivity::class.java)
+                    startActivity(i)
+                }
+                R.id.userProfile ->{
+                    var i = Intent(this,UserProfileActivity::class.java)
+                    startActivity(i)
+                }
+                R.id.communication -> {
+                    val intent = Intent(Intent.ACTION_SENDTO)
+                    intent.data = Uri.parse("mailto:")
+                    intent.putExtra(Intent.EXTRA_EMAIL,"ko2ki2@hotmail.com")
+                    intent.putExtra(Intent.EXTRA_SUBJECT,"Customer Service")
+                    intent.putExtra(Intent.EXTRA_TEXT,"")
+                    startActivity(intent)
                 }
             }
             true

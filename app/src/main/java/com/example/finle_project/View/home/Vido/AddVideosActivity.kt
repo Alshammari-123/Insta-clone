@@ -32,7 +32,7 @@ import com.iceteck.silicompressorr.videocompression.MediaController.mContext
 
 class AddVideosActivity : AppCompatActivity() {
 
-    private lateinit var actionBar: ActionBar
+    //private lateinit var actionBar: ActionBar
     private val VIDEO_PICK_GALLERY_CODE = 100
     private val VIDEO_PICK_CAMERA_CODE = 101
     private val CAMERA_REQUEST_CODE = 102
@@ -60,7 +60,7 @@ class AddVideosActivity : AppCompatActivity() {
 //        actionBar.setDisplayHomeAsUpEnabled(true)
 //        actionBar.setDisplayShowHomeEnabled(true)
 
-        //cashe
+//       // cashe
 //        val videouri = Uri.parse(videoUri.toString())
 //        val dataSpec = DataSpec(videouri)
 //        val defaultCacheKeyFactory = CacheUtil.DEFAULT_CACHE_KEY_FACTORY

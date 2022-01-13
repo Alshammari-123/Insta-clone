@@ -19,24 +19,31 @@
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/drawable/search_rounded.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/drawable/shape.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_add_videos.xml" value="0.1" />
-        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_chat.xml" value="0.10273972602739725" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_call.xml" value="0.1" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_chat.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_edit_profil.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_edit_profile.xml" value="0.22" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_my_post.xml" value="0.1" />
-        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_new_post.xml" value="0.1" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_main2.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_my_post.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_new_post.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_notification.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_profile.xml" value="0.17407407407407408" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_registration.xml" value="0.1" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_setting.xml" value="0.22" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_splash.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_splash2.xml" value="0.17407407407407408" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_user_profile.xml" value="0.1" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_video_call.xml" value="0.22" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/activity_videos.xml" value="0.1" />
-        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/dialog_edit_profile.xml" value="0.12" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/dialog_edit_profile.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/dialog_wate.xml" value="0.1" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/fragment_blank_a.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/fragment_blank_b.xml" value="0.17407407407407408" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/fragment_blank_c.xml" value="0.17407407407407408" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/fragment_blank_home.xml" value="0.17407407407407408" />
-        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/fragment_blank_profile.xml" value="0.14629629629629629" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/fragment_blank_profile.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/fragment_blank_search.xml" value="0.17407407407407408" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/fragment_chat_.xml" value="0.1421875" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/my_post.xml" value="0.22" />
@@ -44,14 +51,15 @@
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/receive.xml" value="0.1" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/rew_a.xml" value="0.17407407407407408" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/rew_a_profile.xml" value="0.17407407407407408" />
-        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/rew_c_home.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/rew_c_home.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/rew_video.xml" value="0.1590909090909091" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/row_b_search.xml" value="0.17407407407407408" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/send.xml" value="0.1" />
-        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/user_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/layout/user_layout.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/menu/menu.xml" value="0.1" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/menu/menu_chat.xml" value="0.23809523809523808" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/menu/menu_post.xml" value="0.16129032258064516" />
+        <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/menu/menu_reels.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/menu/message.xml" value="0.1796875" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/menu/my_post.xml" value="0.1796875" />
         <entry key="..\:/Users/Ko2ki/AndroidStudioProjects/Finle_Project/app/src/main/res/menu/tool_bar.xml" value="0.1" />

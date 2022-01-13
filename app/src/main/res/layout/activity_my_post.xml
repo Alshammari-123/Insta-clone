@@ -7,13 +7,13 @@
 
     <ImageView
         android:id="@+id/imageViewMyPost"
-        android:layout_width="412dp"
-        android:layout_height="227dp"
-        android:layout_marginTop="85dp"
+        android:layout_width="410dp"
+        android:layout_height="290dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:paddingRight="20dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myToolbar"
         tools:srcCompat="@tools:sample/avatars" />
@@ -24,7 +24,7 @@
         android:layout_height="55dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/caption"
-        app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+        app:srcCompat="@drawable/ic_baseline_favorite_24"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <androidx.appcompat.widget.Toolbar
@@ -44,6 +44,7 @@
         android:id="@+id/caption"
         android:layout_width="277dp"
         android:layout_height="64dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="caption"
         android:inputType="textPersonName"

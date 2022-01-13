@@ -72,7 +72,7 @@
         android:layout_marginStart="150dp"
         android:layout_marginEnd="150dp"
         android:clickable="true"
-        android:src="@drawable/ic_add"
+        android:src="@drawable/ic_baseline_video_library_24"
         app:layout_constraintBottom_toTopOf="@+id/myTabLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

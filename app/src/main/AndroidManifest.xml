@@ -20,6 +20,18 @@
         android:theme="@style/Theme.Finle_Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".View.home.EditProfile.UserProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.home.EditProfile.EditeProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.home.EditProfile.EditProfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.home.VideoCall.CallActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.home.VideoCall.VideoCallActivity"
             android:exported="false" />
         <activity

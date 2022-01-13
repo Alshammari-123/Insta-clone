@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.finle_project.Model.EditUser
 import com.example.finle_project.Model.UserChate
 import com.example.finle_project.R
 import com.example.finle_project.View.home.MainActivity.MainActivity
@@ -40,10 +41,12 @@ class Registration : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // for userChat
                     addUserToDatabase(name.text.toString(), email.text.toString(), firebaseAuth.currentUser?.uid!!)
+                    addUserProfileToDatabase(name.text.toString(),email.text.toString(),"",firebaseAuth.currentUser?.uid!!)
 
                     val user = hashMapOf(
                         "fullname" to name.text.toString(),
                         "email" to email.text.toString(),
+                        "avatar" to ""
 
                         )
 
@@ -83,4 +86,11 @@ class Registration : AppCompatActivity() {
         mDbRef.child("users").child(uid).setValue(UserChate(name, email, uid))
 
     }
+    private fun addUserProfileToDatabase(name: String, email: String, bio: String,uid: String) {
+
+        mDbRef = FirebaseDatabase.getInstance().reference
+        mDbRef.child("UsersProfile").child(uid).setValue(EditUser(name, email, bio))
+
+    }
 }
+

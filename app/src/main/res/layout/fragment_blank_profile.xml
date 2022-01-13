@@ -7,90 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".View.home.profile_fragment.ProfileFragment">
 
-    <ImageView
-        android:id="@+id/imageViewProfile"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/image_raounded"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/textView7"
-        android:layout_width="87dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/followers"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/imageViewProfile"
-        app:layout_constraintTop_toBottomOf="@+id/textView9Followirse" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="82dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/following"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10Folloing" />
-
-    <TextView
-        android:id="@+id/textView9Followirse"
+        android:id="@+id/tvBio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/_900"
-        android:textAlignment="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:hint="Bio"
+        android:textColor="@color/black"
         android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageViewProfile"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView10Folloing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="60dp"
-        android:text="@string/_100"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView11Name"
-        android:layout_width="105dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/turki"
-        android:textAlignment="textStart"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11UserNamd" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonEditProfile"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="33dp"
-        android:background="@drawable/button"
-        android:text="@string/edit_profile"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView8"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFullName" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ProfileRecyclerView"
@@ -101,6 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
+
     <View
         android:id="@+id/view"
         android:layout_width="421dp"
@@ -108,20 +36,25 @@
         android:layout_marginTop="5dp"
         android:background="@android:color/holo_red_light"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11Name" />
+        app:layout_constraintTop_toBottomOf="@+id/editProfile" />
 
     <TextView
-        android:id="@+id/textView11UserNamd"
-        android:layout_width="130dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="18dp"
-        android:text="@string/username"
-        android:textSize="24sp"
+        android:id="@+id/tvFullName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="80dp"
+        android:fontFamily="cursive"
+        android:hint="full name"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView7" />
 
     <ProgressBar
         android:id="@+id/profileProgressBar"
@@ -132,4 +65,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/editProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="90dp"
+        android:background="@drawable/button"
+        android:text="Edit Profile"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBio" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView7"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="80dp"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/profliImageFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_account_circle_24" />
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,16 +22,16 @@ class My_Posts : AppCompatActivity() {
         var imageViewDone = findViewById<ImageView>(R.id.imageViewDone)
         var myToolbarPost = findViewById<Toolbar>(R.id.myToolbarPost)
 
-        myToolbarPost.setOnMenuItemClickListener {
-            when(it.itemId){
-                R.id.back ->{
-                    finish()
-                    true
-                }
-
-                else -> {true}
-            }
-        }
+//        myToolbarPost.setOnMenuItemClickListener {
+//            when(it.itemId){
+//                R.id.back ->{
+//                    finish()
+//                    true
+//                }
+//
+//                else -> {true}
+//            }
+//        }
 
         var post = intent.getSerializableExtra("details") as MyPost
 

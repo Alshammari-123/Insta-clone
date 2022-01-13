@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finle_project.Model.Message
 import com.example.finle_project.R
+import com.example.finle_project.View.home.VideoCall.CallActivity
+import com.example.finle_project.View.home.VideoCall.VideoCallActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -30,6 +33,12 @@ class ChatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
+
+        var floatingActionButton2Call = findViewById<FloatingActionButton>(R.id.floatingActionButton2Call)
+        floatingActionButton2Call.setOnClickListener {
+            var i = Intent(this,VideoCallActivity::class.java)
+            startActivity(i)
+        }
 
         var myToolbar = findViewById<Toolbar>(R.id.myToolbar)
          myToolbar.setOnMenuItemClickListener {
