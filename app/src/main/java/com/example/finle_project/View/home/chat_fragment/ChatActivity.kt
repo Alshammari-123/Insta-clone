@@ -3,7 +3,6 @@ package com.example.finle_project.View.home.chat_fragment
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.widget.Toolbar
@@ -11,8 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finle_project.Model.Message
 import com.example.finle_project.R
-import com.example.finle_project.View.home.VideoCall.CallActivity
-import com.example.finle_project.View.home.VideoCall.VideoCallActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -34,22 +31,21 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
-        var floatingActionButton2Call = findViewById<FloatingActionButton>(R.id.floatingActionButton2Call)
-        floatingActionButton2Call.setOnClickListener {
-            var i = Intent(this,VideoCallActivity::class.java)
-            startActivity(i)
-        }
-
         var myToolbar = findViewById<Toolbar>(R.id.myToolbar)
-         myToolbar.setOnMenuItemClickListener {
-             when(it.itemId){
-                 R.id.back ->{
-                     finish()
-                     true
-                 }
-                 else -> {true}
-             }
-         }
+        myToolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_ios_24)
+
+        myToolbar.setNavigationOnClickListener {
+            finish()
+        }
+//         myToolbar.setOnMenuItemClickListener {
+//             when(it.itemId){
+//                 R.id.back ->{
+//                     finish()
+//                     true
+//                 }
+//                 else -> {true}
+//             }
+//         }
 
 
 

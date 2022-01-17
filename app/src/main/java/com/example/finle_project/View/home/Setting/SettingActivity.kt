@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
@@ -22,6 +23,19 @@ class SettingActivity : AppCompatActivity() {
         var switchDark = findViewById<Switch>(R.id.switchDark)
         var spinnerLangueg = findViewById<Spinner>(R.id.spinnerLangueg)
         var getLocation = findViewById<Button>(R.id.getLocation)
+        var buttonSave = findViewById<Button>(R.id.buttonSave)
+        var myToolbarSetting = findViewById<Toolbar>(R.id.myToolbarSetting)
+
+        myToolbarSetting.setNavigationIcon(R.drawable.ic_baseline_arrow_back_ios_24)
+        myToolbarSetting.setNavigationOnClickListener {
+            finish()
+        }
+
+
+        buttonSave.setOnClickListener {
+            finish()
+        }
+
         //Location
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 

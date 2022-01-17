@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.finle_project.Model.MyPost
 import com.example.finle_project.R
+import androidx.appcompat.widget.Toolbar
 import com.example.finle_project.util.ImageEncoding
 import com.example.finle_project.viewModel.PostViewModel
 
@@ -20,18 +21,13 @@ class My_Posts : AppCompatActivity() {
         var imageViewDelete = findViewById<ImageView>(R.id.imageViewDelete)
         var caption = findViewById<EditText>(R.id.caption)
         var imageViewDone = findViewById<ImageView>(R.id.imageViewDone)
-        var myToolbarPost = findViewById<Toolbar>(R.id.myToolbarPost)
+        var myToolbarPost = findViewById<Toolbar>(R.id.myToolbar)
 
-//        myToolbarPost.setOnMenuItemClickListener {
-//            when(it.itemId){
-//                R.id.back ->{
-//                    finish()
-//                    true
-//                }
-//
-//                else -> {true}
-//            }
-//        }
+        myToolbarPost.setNavigationIcon(R.drawable.ic_baseline_arrow_back_ios_24)
+        myToolbarPost.setNavigationOnClickListener {
+            finish()
+        }
+
 
         var post = intent.getSerializableExtra("details") as MyPost
 

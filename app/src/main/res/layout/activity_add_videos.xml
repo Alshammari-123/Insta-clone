@@ -36,7 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/ic_baseline_video_library_24" />
+        android:backgroundTint="#FE878F"
+        android:src="@drawable/icon_add_video" />
 
 
 

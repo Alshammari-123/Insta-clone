@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Window
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.example.finle_project.Model.EditUser
 import com.example.finle_project.R
 import com.example.finle_project.databinding.ActivityEditProfileBinding
@@ -38,6 +39,11 @@ class EditeProfileActivity : AppCompatActivity() {
 
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        var myToolbar = findViewById<Toolbar>(R.id.myToolbar)
+        myToolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_ios_24)
+        myToolbar.setNavigationOnClickListener {
+            finish()
+        }
 
         auth = FirebaseAuth.getInstance()
         val uid = auth.currentUser?.uid
