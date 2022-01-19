@@ -19,17 +19,17 @@
             android:id="@+id/Profile"
             android:icon="@drawable/ic_baseline_account_circle_24"
             app:showAsAction="never"
-            android:title="Edit Profile"/>
+            android:title="@string/edit_profile"/>
 
         <item
             android:id="@+id/userProfile"
             app:showAsAction="never"
-            android:title="My Profile"/>
+            android:title="@string/my_profile"/>
 
         <item
             android:id="@+id/communication"
             app:showAsAction="never"
-            android:title="Communication"/>
+            android:title="@string/communication"/>
 
 
         <item
@@ -37,7 +37,7 @@
             android:icon="@drawable/ic_baseline_logout_24"
             android:checked="true"
             app:showAsAction="never"
-            android:title="Logout" />
+            android:title="@string/logout" />
 
 
 

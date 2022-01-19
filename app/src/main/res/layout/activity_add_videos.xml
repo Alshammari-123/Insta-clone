@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".View.home.Vido.AddVideosActivity">
+    tools:context=".view.home.video.AddVideosActivity">
 
     <EditText
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Title"
+        android:hint="@string/enter_title"
         android:inputType="textPersonName|textCapSentences"
         android:padding="10dp"/>
 
@@ -28,7 +28,7 @@
     android:layout_height="wrap_content"
     android:layout_below="@+id/videoView"
     android:layout_marginTop="5dp"
-    android:text="Uplod Video"/>
+    android:text="@string/uplod_video"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/pickVideoFab"

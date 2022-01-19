@@ -19,7 +19,7 @@
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="2"
-        android:text="The title of the video"
+        android:text="@string/the_title_of_the_video"
         android:textColor="@color/black"
         android:textSize="18dp" />
 
@@ -35,7 +35,7 @@
         android:shadowDy="1"
         android:shadowColor="@color/black"
         android:textColor="@color/black"
-        android:text="dd/MM/YYYY hh:mm"/>
+        android:text="@string/dd_mm_yyyy_hh_mm"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

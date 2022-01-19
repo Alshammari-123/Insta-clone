@@ -3,8 +3,8 @@ package com.example.finle_project.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.finle_project.Model.MyPost
-import com.example.finle_project.Repository.PostRepository
+import com.example.finle_project.model.MyPost
+import com.example.finle_project.repository.PostRepository
 
 class PostViewModel : ViewModel() {
 

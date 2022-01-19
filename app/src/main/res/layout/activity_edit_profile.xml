@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.home.EditProfile.EditeProfileActivity">
+    tools:context=".view.home.editProfile.EditeProfileActivity">
 
     <ImageView
         android:id="@+id/profliImage"
@@ -36,7 +36,7 @@
             android:layout_width="233dp"
             android:layout_height="77dp"
             android:ems="10"
-            android:hint="First Name"
+            android:hint="@string/first_name"
             android:inputType="textPersonName"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
             android:layout_height="77dp"
             android:layout_marginTop="20dp"
             android:ems="10"
-            android:hint="Last Name"
+            android:hint="@string/last_name"
             android:inputType="textPersonName"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
             android:layout_height="77dp"
             android:layout_marginTop="20dp"
             android:ems="10"
-            android:hint="Bio"
+            android:hint="@string/bio"
             android:inputType="textPersonName"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +75,7 @@
         android:layout_marginEnd="80dp"
         android:layout_marginBottom="75dp"
         android:background="@drawable/button"
-        android:text="Save"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

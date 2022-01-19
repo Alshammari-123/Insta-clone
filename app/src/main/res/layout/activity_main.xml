@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.home.MainActivity.MainActivity">
+    tools:context=".view.home.mainActivity.MainActivity">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/myTabLayout"
@@ -57,7 +57,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/home_fragment_container_view"
-        android:name="com.example.finle_project.View.home.home_fragment.HomeFragment"
+        android:name="com.example.finle_project.view.home.home_fragment.HomeFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"

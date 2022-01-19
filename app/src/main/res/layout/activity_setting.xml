@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.home.Setting.SettingActivity">
+    tools:context=".view.home.setting.SettingActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView2"
@@ -136,7 +136,7 @@
             android:layout_width="0dp"
             android:layout_height="47dp"
             android:layout_marginTop="7dp"
-            android:text="Location"
+            android:text="@string/location"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
             app:layout_constraintTop_toTopOf="parent" />
@@ -146,7 +146,7 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get !"
+            android:text="@string/get"
             android:textAlignment="textStart"
             android:textColor="#F0FB578E"
             android:textSize="20sp"

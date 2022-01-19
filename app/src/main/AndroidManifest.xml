@@ -13,32 +13,23 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/insta_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/insta_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Finle_Project"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".View.home.EditProfile.UserProfileActivity"
+            android:name=".view.home.editProfile.UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".View.home.EditProfile.EditeProfileActivity"
+            android:name=".view.home.editProfile.EditeProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".View.home.EditProfile.EditProfilActivity"
+            android:name=".view.home.video.AddVideosActivity"
             android:exported="false" />
         <activity
-            android:name=".View.home.VideoCall.CallActivity"
-            android:exported="false" />
-        <activity
-            android:name=".View.home.VideoCall.VideoCallActivity"
-            android:exported="false" />
-        <activity
-            android:name=".View.home.Vido.AddVideosActivity"
-            android:exported="false" />
-        <activity
-            android:name=".View.home.Vido.VideosActivity"
+            android:name=".view.home.video.VideosActivity"
             android:exported="false" />
 
         <meta-data
@@ -53,19 +44,19 @@
             android:resource="@color/white" />
 
         <activity
-            android:name=".View.home.Setting.SettingActivity"
+            android:name=".view.home.setting.SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".View.home.chat_fragment.ChatActivity"
+            android:name=".view.home.chat_fragment.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".View.home.NewPost.NewPostActivity"
+            android:name=".view.home.newPost.NewPostActivity"
             android:exported="false" />
         <activity
-            android:name=".View.home.My_Posts.My_Posts"
+            android:name=".view.home.my_Posts.My_Posts"
             android:exported="true" />
         <activity
-            android:name=".View.home.Splash.Splash"
+            android:name=".view.home.splash.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -74,13 +65,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.Regestar.Registration"
+            android:name=".view.regestar.Registration"
             android:exported="false" />
         <activity
-            android:name=".View.login.Login"
+            android:name=".view.login.Login"
             android:exported="false" />
         <activity
-            android:name=".View.home.MainActivity.MainActivity"
+            android:name=".view.home.mainActivity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -90,7 +81,7 @@
         </activity>
 
         <service
-            android:name=".Model.MyFirebaseMessagingService"
+            android:name=".model.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

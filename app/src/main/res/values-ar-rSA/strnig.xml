@@ -34,5 +34,44 @@
     <string name="account">حساب</string>
     <string name="this_is_sent_message">هذة رسالة مرسلة</string>
     <string name="notification">تنبيه</string>
+    <string name="back">الرجوع</string>
+    <string name="enter_title">ادخل العنوان</string>
+    <string name="uplod_video">رفع الفيديو</string>
+    <string name="bio">الوصف</string>
+    <string name="last_name">اسم الاخير</string>
+    <string name="first_name"> اسم الاول</string>
+    <string name="sign_in"> تسجيل دخول</string>
+    <string name="sign_up">التسجيل</string>
+    <string name="location">الموقع</string>
+    <string name="get">احصل!</string>
+    <string name="please_wait">الرجاء الانتظار...</string>
+    <string name="title">عنوان</string>
+    <string name="this_is_description">هذا هو الوصف</string>
+    <string name="the_title_of_the_video">وصف الفيديو</string>
+    <string name="my_profile">ملف الشخصي</string>
+    <string name="communication">التواصل</string>
+    <string name="logout">تسجيل الخروج</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.home.NewPost.NewPostActivity">
+    tools:context=".view.home.newPost.NewPostActivity">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2AddPost"
@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="top|start"
-            android:hint="caption" />
+            android:hint="@string/caption" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.Toolbar
@@ -70,8 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/tool_bar"
-        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+        app:menu="@menu/menu_chat"
         app:title="New post" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
